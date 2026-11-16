@@ -1,0 +1,5 @@
+# Same as Dockerfile-entrypoint, but based on the locally built image (with the fixed GraphAnalysis.py)
+FROM sample-app:1.0
+
+ENTRYPOINT ["python", "GraphAnalysis.py"]
+CMD ["obj_dependency_data.csv"]
