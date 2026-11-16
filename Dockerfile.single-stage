@@ -1,0 +1,10 @@
+# For comparison only: the same app WITHOUT multi-stage.
+# The final image still contains the whole Go toolchain and the source code.
+FROM golang:1.23-alpine
+
+WORKDIR /src
+COPY go.mod main.go ./
+RUN CGO_ENABLED=0 go build -o /app .
+
+EXPOSE 8080
+ENTRYPOINT ["/app"]
